@@ -1,15 +1,3 @@
-/* 
-1.Crear una página web simple que muestre información sobre un tema que les guste. Esto puede incluir imágenes, enlaces y estilos CSS para darle estilo a la página.
-
-2. Crear una pequeña aplicación web que muestre una lista de tareas pendientes y permita agregar, eliminar y marcar tareas como completadas. Esto puede incluir el uso de localStorage para guardar la información en el navegador.
-
-3. Crear un juego simple en JavaScript, como una versión básica de ajedrez o un rompecabezas. Esto puede requerir el uso de lógica y cálculos matemáticos para implementar las reglas del juego.
-
-4. Crear una aplicación web que utilice una API externa para obtener y mostrar información relevante. Por ejemplo, se puede crear una aplicación que muestre el pronóstico del tiempo en una ciudad determinada o que busque información sobre películas.
-
-5. Crear un pequeño script que realice una tarea específica, como calcular el promedio de un conjunto de números o generar contrasenas */
-
-
 let input = document.getElementById("inputText");
 let list = document.getElementById("list");
 let CaracterMinimo = 4; // valor mínimo de palabras para la tarea
