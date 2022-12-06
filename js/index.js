@@ -7,15 +7,15 @@ let listNum = 0; // contador de tareas
 // Vincular "Enter" al botón de agregar tarea
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        addList();
+        AgregarLista();
     }
 });
 
 
 // Agregar una tarea a la lista
-addList = () => {
+AgregarLista = () => {
     // obtener el dato
-    let inputText = filterList(input.value);
+    let inputText = FiltroLista(input.value);
 
 
     // Imprimirlo 
@@ -33,7 +33,7 @@ addList = () => {
                                         <span class=" h4" id="text${listNum}"> ${inputText} </span>
                                     </div>
                                     <div class="col-4">
-                                        <button class=" btn btn-danger" onclick="deleteList(${listNum})">Borrar</button>
+                                        <button class=" btn btn-danger" onclick="borrarLista(${listNum})">Borrar</button>
                                         <button class=" btn btn-dark" onclick="editList(${listNum})">Editar</button>
                                     </div>                  
                                 </div>    
@@ -57,19 +57,27 @@ if (listGuardada) {
     list.innerHTML = listGuardada;
 }
 
+deleteAll = () =>{
+    if (localStorage.length > 0) {
+        localStorage.clear();
+        location.reload()
+    } else {
+        alert("Está vacío. No hay nada que borrar.");
+    }
+}
 
 
 //checkear las tareas, marcar como completadas
 done = (listId) => {
     let checkbox = document.getElementById(`check${listId}`);
-    let current = document.getElementById(`text${listId}`);
-    let classExit = current.classList.contains("text-decoration-line-through");
+    let Actual = document.getElementById(`text${listId}`);
+    let classExit = Actual.classList.contains("text-decoration-line-through");
     if (classExit == true) {
-        current.classList.remove("text-decoration-line-through");
-        current.classList.remove("listocalisto");
+        Actual.classList.remove("text-decoration-line-through");
+        Actual.classList.remove("listocalisto");
     } else {
-        current.classList.add("text-decoration-line-through");
-        current.classList.add("listocalisto");
+        Actual.classList.add("text-decoration-line-through");
+        Actual.classList.add("listocalisto");
     }
 }
 
@@ -77,7 +85,7 @@ done = (listId) => {
 
 
 // Validar que la tarea contenga al menos dos palabras
-filterList = (x) => {
+FiltroLista = (x) => {
     if (x) {
         if (x.length >= CaracterMinimo) {
             return x;
@@ -94,10 +102,10 @@ filterList = (x) => {
 
 // Editar una tarea existente
 editList = (listId) => {
-    let currentText = document.getElementById(`text${listId}`);
-    let newText = prompt("Modo Edicion", currentText.innerHTML);
-    if (filterList(newText)) {
-        currentText.innerHTML = newText;
+    let textoActual = document.getElementById(`text${listId}`);
+    let nuevoTexto = prompt("Modo Edicion", textoActual.innerHTML);
+    if (FiltroLista(nuevoTexto)) {
+        textoActual.innerHTML = nuevoTexto;
     }
 }
 
@@ -105,10 +113,10 @@ editList = (listId) => {
 
 
 // Elimina una tarea de la lista
-deleteList = (listId) => {
-    let current = document.getElementById(`text${listId}`).innerHTML;
-    let deleteComfirm = confirm(`Estas seguro que quieres eliminar? ${current}`);
-    if (deleteComfirm) {
+borrarLista = (listId) => {
+    let Actual = document.getElementById(`text${listId}`).innerHTML;
+    let confirmarBorrar = confirm(`Estas seguro que quieres eliminar? ${Actual}`);
+    if (confirmarBorrar) {
         let p = document.getElementById("list")
         let c = document.getElementById(`list${listId}`);
         p.removeChild(c);
