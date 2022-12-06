@@ -11,10 +11,12 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+
 // Agregar una tarea a la lista
 addList = () => {
     // obtener el dato
     let inputText = filterList(input.value);
+
 
     // Imprimirlo 
     if (inputText) {
@@ -38,8 +40,10 @@ addList = () => {
                 </li> `;
         input.value = " ";
 
+
         // guardar la lista en localStorage
         localStorage.setItem("list", list.innerHTML);
+
 
         listNum++; // incrementar contador de tareas
     }
@@ -55,9 +59,6 @@ if (listGuardada) {
 
 
 
-
-
-
 //checkear las tareas, marcar como completadas
 done = (listId) => {
     let checkbox = document.getElementById(`check${listId}`);
@@ -70,8 +71,9 @@ done = (listId) => {
         current.classList.add("text-decoration-line-through");
         current.classList.add("listocalisto");
     }
-
 }
+
+
 
 
 // Validar que la tarea contenga al menos dos palabras
@@ -87,6 +89,9 @@ filterList = (x) => {
     }
 }
 
+
+
+
 // Editar una tarea existente
 editList = (listId) => {
     let currentText = document.getElementById(`text${listId}`);
@@ -95,6 +100,9 @@ editList = (listId) => {
         currentText.innerHTML = newText;
     }
 }
+
+
+
 
 // Elimina una tarea de la lista
 deleteList = (listId) => {
