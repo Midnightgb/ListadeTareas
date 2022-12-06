@@ -20,23 +20,23 @@ addList = () => {
 
     // Imprimirlo 
     if (inputText) {
-        list.innerHTML += ` <li class=" my-3 py-3 shadow list-group-item " id="list${listNum}">
-                <div class="row">
-                <div class="col-1">
-                <input class="" type="checkbox" id="check${listNum}" onclick="done(${listNum})">
-                <label>
-                    <input type="checkbox" id="check${listNum}" onclick="done(${listNum})">
-                    <span class="checkbox"></span>
-                </label>
-                </div>
-                <div class="col-6">
-                    <span class=" h4" id="text${listNum}"> ${inputText} </span>
-                </div>
-                <div class="col-4">
-                    <button class=" btn btn-danger" onclick="deleteList(${listNum})">Borrar</button>
-                    <button class=" btn btn-dark" onclick="editList(${listNum})">Editar</button>
-                </div>                  
-                </div>    
+        list.innerHTML += ` <li class="rounded-3 my-3 py-3 shadow list-group-item " id="list${listNum}">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <input class="" type="checkbox" id="check${listNum}" onclick="done(${listNum})">
+                                        <label>
+                                            <input type="checkbox" id="check${listNum}" onclick="done(${listNum})">
+                                            <span class="checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class=" h4" id="text${listNum}"> ${inputText} </span>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class=" btn btn-danger" onclick="deleteList(${listNum})">Borrar</button>
+                                        <button class=" btn btn-dark" onclick="editList(${listNum})">Editar</button>
+                                    </div>                  
+                                </div>    
                 </li> `;
         input.value = " ";
 
